@@ -1,0 +1,340 @@
+:root {
+    --color-bg-dark:    #1F2326;
+    --color-bg-alt:     #162A3A;
+    --color-header:     #0D0F12;
+    --color-text:       #C7C9CA;
+    --color-text-sec:   #7F8387;
+    --color-accent:     #4A90E2;
+    --color-accent-hov: #357ABD;
+    --color-border:     #2C3E50;
+    --font-body:        'Roboto', Arial, sans-serif;
+    --font-heading:     'Merriweather', Georgia, serif;
+    --space-sm:         0.5rem;
+    --space-md:         1rem;
+    --space-lg:         2rem;
+  }
+  
+  /* Reset global */
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: var(--font-body);
+    background: var(--color-bg-dark);
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-text);
+    margin-bottom: var(--space-md);
+  }
+  
+  p {
+    margin-bottom: var(--space-md);
+  }
+  
+  /* Container central */
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+  
+  /* Header & navigation */
+  header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    /* glassmorphism bleu léger */
+    background: rgba(74, 144, 226, 0.2);       /* bleu #4A90E2 à 20% d’opacité */
+    backdrop-filter: blur(10px);               /* flou d’arrière‑plan */
+    -webkit-backdrop-filter: blur(10px);       /* pour Safari */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--space-md);
+    z-index: 1000;
+  }
+  
+  html {
+    /* Le header fait 60px + 1rem de marge, ici on met 80px au besoin */
+    scroll-padding-top: 50px;
+    scroll-behavior: smooth; /* si tu veux conserver un scroll lisse */
+  }
+  
+  .logo {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 1.25rem;
+  }
+  
+  .menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--color-text);
+    font-size: 1.5rem;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--space-lg);
+  }
+  
+  nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  nav a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+  
+  nav a.active {
+    color: var(--color-accent);
+  }
+  
+  /* Hero */
+  .hero {
+    position: relative;
+    min-height: 80vh;
+    background: url('img/hero-bg.jpg') center/cover no-repeat;
+  }  
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--color-bg-dark);
+    opacity: 0.7;
+  }
+  
+  .hero-content {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-md);
+    text-align: center;
+  }
+  
+  /* Boutons */
+  .btn {
+    display: inline-block;
+    padding: var(--space-md) var(--space-lg);
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .btn-primary {
+    background: var(--color-accent);
+    color: var(--color-text);
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background: var(--color-accent-hov);
+  }
+  
+  .btn-secondary {
+    background: transparent;
+    color: var(--color-border);
+    border: 2px solid var(--color-border);
+  }
+  
+  .btn-secondary:hover {
+    background: var(--color-border);
+    color: var(--color-text);
+  }
+  
+  /* Sections alternés */
+  section {
+    padding: var(--space-lg) 0;
+  }
+  
+  section:nth-of-type(odd) {
+    background: var(--color-bg-dark);
+  }
+  
+  section:nth-of-type(even) {
+    background: var(--color-bg-alt);
+  }
+  
+  /* À propos */
+  #about {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    align-items: center;
+  }
+  
+  /* Formulaire */
+  form label {
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+  
+  form input,
+  form textarea {
+    width: 100%;
+    padding: var(--space-sm);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    background: var(--color-bg-dark);
+    color: var(--color-text);
+    margin-top: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+  
+  form button {
+    cursor: pointer;
+  }
+  
+  /* Cartes (formations, enseignements, publications) */
+  .course-card,
+  .project-card,
+  .publication-item {
+    background: var(--color-bg-alt);
+    border-radius: 6px;
+    padding: var(--space-md);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin-bottom: var(--space-lg);
+  }
+  
+  /* Footer */
+  footer {
+    background: var(--color-header);
+    color: var(--color-text);
+    text-align: center;
+    padding: var(--space-lg) 0;
+  }
+  
+  footer a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    #about {
+      flex-direction: column;
+    }
+    .hero {
+      min-height: 60vh;
+    }
+    .menu-toggle {
+      display: block;
+    }
+    nav ul {
+      flex-direction: column;
+      display: none;
+      background: var(--color-header);
+      position: absolute;
+      top: 60px;
+      right: var(--space-md);
+      padding: var(--space-md);
+      border-radius: 4px;
+    }
+    nav ul.open {
+      display: flex;
+    }
+  }
+
+  /* Dropdown nav */
+nav ul { position: relative; }
+.dropdown { position: relative; }
+.dropdown .arrow { font-size: 0.8rem; margin-left: 0.2em; }
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%; left: 0;
+  background: var(--color-header);
+  list-style: none;
+  padding: var(--space-sm) 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  z-index: 1100;
+}
+.submenu li { margin: 0; }
+.submenu a {
+  display: block;
+  padding: var(--space-sm) var(--space-lg);
+  white-space: nowrap;
+}
+.dropdown:hover .submenu { display: block; }
+.submenu a:hover { background: var(--color-bg-alt); color: var(--color-accent); }
+
+/* Preview grid on homepage */
+#resources-preview h2 { margin-bottom: var(--space-md); text-align: center; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+.card {
+  background: var(--color-bg-alt);
+  padding: var(--space-md);
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--color-text);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+.card h3 { margin-bottom: var(--space-sm); }
+.card p { font-size: 0.9rem; color: var(--color-text-sec); }
+
+
+/* 1. Variable de rayon */
+:root {
+  --radius: 12px;
+}
+
+/* 2. Coins arrondis sur les blocs principaux */
+header,
+section,
+footer,
+.dropdown .submenu,
+#resources-preview .card,
+.course-card,
+.project-card,
+.publication-item,
+.btn {
+  border-radius: var(--radius);
+}
+
+/* 3. Assurer un petit espace autour des sections pour voir l’arrondi */
+section {
+  margin: var(--space-md) 0;
+}
+
+/* 4. Ajuster l’en-tête en mode glassmorphism */
+header {
+  margin: var(--space-md);
+}
+
+/* 5. Limiter la largeur des sections arrondies (optionnel) */
+section.container {
+  background: inherit; /* si tu veux que le background alterne reste visible */
+  padding: var(--space-lg) var(--space-md);
+}
